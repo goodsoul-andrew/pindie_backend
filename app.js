@@ -1,5 +1,7 @@
 const http = require("http")
+const path = require("path");
 const staticFile = require("./app-modules/http-utils/static-file")
+const doEndpoint = require("./app-modules/utils/do-endpoint")
 
 
 const server = http.createServer((req, res) => {
@@ -9,7 +11,12 @@ const server = http.createServer((req, res) => {
 			staticFile(res, '/index.html');
 			break;
 		default:
-			staticFile(res, url);
+      if (path.extname(url) === "") {
+        doEndpoint(req, res);
+      }
+      else {
+        staticFile(res, url);
+      }
 	}
 })
 
