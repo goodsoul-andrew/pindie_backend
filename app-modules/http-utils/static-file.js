@@ -1,5 +1,5 @@
 const fs = require('fs');
-const mimeTypes = require('./mime-types');
+const mimeTypes = require('./mime-types.js');
 const path = require("path")
 
 function staticFile(res, filePath) {

@@ -29,6 +29,7 @@ form.addEventListener("submit", async event => {
     design: +formData.get("design") ? +formData.get("design") : 0,
     idea: +formData.get("idea") ? +formData.get("idea") : 0
   };
+  console.log(obj);
   const response = await fetch("/vote", {
     method: "POST",
     headers: {
