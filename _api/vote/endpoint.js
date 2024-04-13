@@ -19,7 +19,7 @@ async function voteRouteController(req, res) {
 			//console.log(ratingArray);
 			const newRating = updateRating(ratingArray, data);
 			//console.log(newRating);
-			await fs.writeFile(PATH_TO_RATING_FILE, JSON.stringify(newRating));
+			await fs.writeFile(PATH_TO_RATING_FILE, JSON.stringify(newRating, undefined, 2));
 			res.setHeader('Content-Type', 'application/json');
 			res.statusCode = 200;
 			res.end(JSON.stringify(newRating.sort((a, b) => b.rating - a.rating)));

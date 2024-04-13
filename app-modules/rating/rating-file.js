@@ -31,7 +31,7 @@ async function makeRatingFile(array) {
 	});
 
 	// Обновим список игр в файле по пути path, записав туда обновлённый массив ratingArray
-	await fs.writeFile(PATH_TO_RATING_FILE, JSON.stringify(ratingArray));
+	await fs.writeFile(PATH_TO_RATING_FILE, JSON.stringify(ratingArray, null, 2));
 }
 
 module.exports = makeRatingFile;
