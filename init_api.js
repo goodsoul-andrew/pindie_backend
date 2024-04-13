@@ -1,17 +1,15 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
+var endpoints = {};
 
-var endpoints = {}
-
-
-function walkAroundApi (dirname="./_api") {
-  fs.readdir(dirname, (err, files) => {
-    if (err) {
-      throw err;
-    }
-    for (let file of files) {
-      let fname = dirname + "/" + file;
+function walkAroundApi(dirname = './_api') {
+	fs.readdir(dirname, (err, files) => {
+		if (err) {
+			throw err;
+		}
+		for (let file of files) {
+			let fname = dirname + '/' + file;
 			fs.stat(fname, (errStat, status) => {
 				if (errStat) throw errStat;
 
@@ -19,16 +17,16 @@ function walkAroundApi (dirname="./_api") {
 					//console.log('Папка: ' + fname);
 					walkAroundApi(dirname + '/' + file); // продолжаем рекурсию
 				} else {
-          if (path.basename(fname) === "endpoint.js") {
-            endpoints[dirname] = require(fname);
-            //console.log(endpoints);
-          }
+					if (path.basename(fname) === 'endpoint.js') {
+						endpoints[dirname] = require(fname);
+						//console.log(endpoints);
+					}
 					//console.log('Файл: ' + fname);
 				}
 			});
 		}
-  })
+	});
 }
 
 walkAroundApi();
-console.log("sdfsdfsd", endpoints);
+//console.log("sdfsdfsd", endpoints);

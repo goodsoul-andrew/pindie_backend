@@ -1,21 +1,19 @@
-const http = require("http");
-const path = require("path");
-const {staticFile, doEndpoint} = require("./app-modules/http-utils");
-
+const http = require('http');
+const path = require('path');
+const { staticFile, doEndpoint } = require('./app-modules/http-utils');
 
 const server = http.createServer((req, res) => {
-  const url = req.url;
+	const url = req.url;
 	switch (url) {
 		default:
-      if (path.extname(url) === "") {
-        doEndpoint(req, res);
-      }
-      else {
-        staticFile(res, url);
-      }
+			if (path.extname(url) === '') {
+				doEndpoint(req, res);
+			} else {
+				staticFile(res, url);
+			}
 	}
-})
+});
 
 server.listen(3105);
 
-console.log('running on:    http://localhost:3105/');
+//console.log('running on:    http://localhost:3105/');

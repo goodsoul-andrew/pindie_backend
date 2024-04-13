@@ -1,5 +1,5 @@
 const fs = require('fs').promises;
-const PATH_TO_RATING_FILE = require("./config");
+const PATH_TO_RATING_FILE = require('./config');
 const path = require('path');
 
 /**
