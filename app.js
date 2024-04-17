@@ -1,17 +1,16 @@
-const http = require('http');
+const express = require('express');
 const path = require('path');
-const { staticFile, doEndpoint } = require('./app-modules/http-utils');
+const {mainRoute, gamesRoute} = require("./_routes");
 
-const server = http.createServer((req, res) => {
-	const url = req.url;
-	switch (url) {
-		default:
-			if (path.extname(url) === '') {
-				doEndpoint(req, res);
-			} else {
-				staticFile(res, url);
-			}
-	}
+
+const app = express();
+
+app.use(mainRoute, gamesRoute);
+app.use(express.static(path.join(__dirname, 'public'))); 
+
+const PORT = 3105
+app.listen(PORT, () => {
+	console.log(`App listening on http://localhost:${PORT}/`);
 });
 
-server.listen(3000);
+
