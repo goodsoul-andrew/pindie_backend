@@ -11,7 +11,7 @@ app.use(cors);
 app.use(bodyParser.json());
 app.use(mainRoute, gamesRoute);
 
-const PORT = 3105
+const PORT = 3000
 app.listen(PORT, () => {
 	console.log(`App listening on http://localhost:${PORT}/`);
 });
