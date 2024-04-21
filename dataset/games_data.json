@@ -61,5 +61,12 @@
     "image": "https://code.s3.yandex.net/teens/pindie-games/Deep-Under-The-Castle/cover.png",
     "link": "https://code.s3.yandex.net/teens/pindie-games/Deep-Under-The-Castle/index.html",
     "description": "Прыгай по платформам и собирай ключи, чтобы выбраться из проклятого замка."
+  },
+  {
+    "id": 9,
+    "title": "Подземелье вкусностей",
+    "image": "https://gen.jut.su/uploads/animethumbs/anime_dungeon-meshi.jpg",
+    "link": "https://jut.su/dungeon-meshi/episode-1.html",
+    "description": "1 серия"
   }
 ]
