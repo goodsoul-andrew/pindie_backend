@@ -1,7 +1,8 @@
 const {readData} = require("../app-modules/utils/parse")
+const game = require("../models/game")
 
 
-async function getGamesData(req, res, next) {
+async function getAllGamesFromJSON(req, res, next) {
 	const games = await readData("./dataset/games_data.json");
 	if (!games) {
 		res.status(400);
@@ -15,5 +16,10 @@ async function getGamesData(req, res, next) {
 	next();
 }
 
+async function getAllGames(req, res, next) {
+	req.games = await game.find({}).populate('categories').populate('users');
+  next();
+}
 
-module.exports = getGamesData
+
+module.exports = getAllGames;

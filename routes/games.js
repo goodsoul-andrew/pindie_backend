@@ -1,6 +1,14 @@
 const express = require("express");
 const path = require('path');
-const { cors, checkIsIdInArray, getGamesData, updateGamesArray, updateGamesFile, findGameById, deleteGame } = require("../middlewares")
+const {
+	cors,
+	checkIsIdInArray,
+	getAllGames,
+	updateGamesArray,
+	updateGamesFile,
+	findGameById,
+	deleteGame
+} = require('../middlewares');
 
 
 function sendGames(req, res) {
@@ -26,17 +34,17 @@ function sendDeletedGames(req, res) {
 }
 
 const gamesRoute = express.Router();
-gamesRoute.get('/games', getGamesData, sendGames);
-gamesRoute.get("/games/:id", getGamesData, findGameById, sendGame)
+gamesRoute.get('/games', getAllGames, sendGames);
+gamesRoute.get('/games/:id', getAllGames, findGameById, sendGame);
 gamesRoute.delete(
 	'/games/:id',
-	getGamesData,
+	getAllGames,
 	checkIsIdInArray,
 	findGameById,
 	deleteGame,
 	updateGamesFile,
 	sendDeletedGames
 );
-gamesRoute.post('/games', getGamesData, checkIsIdInArray, updateGamesArray, updateGamesFile, sendUpdatedGames);
+gamesRoute.post('/games', getAllGames, checkIsIdInArray, updateGamesArray, updateGamesFile, sendUpdatedGames);
 
 module.exports = gamesRoute;
