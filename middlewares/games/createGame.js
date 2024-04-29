@@ -1,13 +1,13 @@
-const games = require('../models/game');
-
+const games = require('../../models/game');
 
 async function createGame(req, res, next) {
-  console.log('POST /games');
-  try {
-		console.log(req.body);
+	('POST /games');
+	try {
+		req.body;
 		req.game = await games.create(req.body);
 		next();
 	} catch (error) {
+		error;
 		res.status(400).send('Error creating game');
 	}
 }

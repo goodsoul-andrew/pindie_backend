@@ -7,7 +7,7 @@ const readData = async (url) => {
 		const json = JSON.parse(data);
 		return json;
 	} catch (error) {
-		//console.log(error);
+		error;
 	}
 };
 

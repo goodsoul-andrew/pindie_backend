@@ -1,22 +1,34 @@
 const cors = require('./cors');
-const checkIsIdInArray = require("./checkIsIdInArray");
-const getAllGames = require("./getAllgames");
-const updateGamesArray = require("./updateGamesArray");
-const updateGamesFile = require("./updateGamesFile");
-const findGameById = require("./findGameById");
-const deleteGame = require("./deleteGame");
-const getAllCategories = require("./getAllCategories")
-const getAllUsers = require("./getAllUsers")
+const { getAllGames, findGameById, findGames, createGame, updateGame, deleteGame } = require('./games');
+const {
+	getAllCategories,
+	findCategories,
+	findCategoryById,
+	updateCategory,
+	createCategory,
+	deleteCategory
+} = require('./categories');
+const { getAllUsers, findUserById, findUsers, createUser, updateUser, deleteUser } = require('./users');
 
 
 module.exports = {
 	cors,
-	checkIsIdInArray,
 	getAllGames,
-	updateGamesArray,
-	updateGamesFile,
 	findGameById,
 	deleteGame,
 	getAllUsers,
-	getAllCategories
+	getAllCategories,
+	createCategory,
+	createGame,
+	createUser,
+	findGames,
+	findUserById,
+	findCategoryById,
+	findUsers,
+	updateGame,
+	updateCategory,
+	findCategories,
+	updateUser,
+	deleteUser,
+	deleteCategory
 };

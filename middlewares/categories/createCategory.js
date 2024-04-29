@@ -1,12 +1,13 @@
-const categories = require('../models/category');
+const categories = require('../../models/category');
 
 async function createCategory(req, res, next) {
-	console.log('POST /category');
+	('POST /category');
 	try {
-		console.log(req.body);
-		req.category = await category.create(req.body);
+		req.body;
+		req.category = await categories.create(req.body);
 		next();
 	} catch (error) {
+		error;
 		res.status(400).send('Error creating category');
 	}
 }

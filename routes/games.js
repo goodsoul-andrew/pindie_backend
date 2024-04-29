@@ -2,49 +2,32 @@ const express = require("express");
 const path = require('path');
 const {
 	cors,
-	checkIsIdInArray,
 	getAllGames,
-	updateGamesArray,
-	updateGamesFile,
 	findGameById,
-	deleteGame
+	deleteGame,
+	createGame,
+	findGames,
+	updateGame
 } = require('../middlewares');
 
 
 function sendGames(req, res) {
 	res.send(req.games);
 }
+
 function sendGame (req, res) {
 	res.send(req.game);
 }
 
-function sendUpdatedGames (req, res) {
-	res.send({
-		games: req.games,
-		updated: req.updatedObject
-	});
-}
-
-
-function sendDeletedGames(req, res) {
-	res.send({
-		games: req.games,
-		deleted: req.game
-	});
+function sendUpdateStatus (req, res) {
+	res.send({message: "Игра обновлена"})
 }
 
 const gamesRoute = express.Router();
-gamesRoute.get('/games', getAllGames, sendGames);
-gamesRoute.get('/games/:id', getAllGames, findGameById, sendGame);
-gamesRoute.delete(
-	'/games/:id',
-	getAllGames,
-	checkIsIdInArray,
-	findGameById,
-	deleteGame,
-	updateGamesFile,
-	sendDeletedGames
-);
-gamesRoute.post('/games', getAllGames, checkIsIdInArray, updateGamesArray, updateGamesFile, sendUpdatedGames);
+gamesRoute.get('/games', findGames, sendGames);
+gamesRoute.get('/games/:id', findGameById, sendGame);
+gamesRoute.post('/games', createGame, sendGame);
+gamesRoute.put('/games/:id', updateGame, sendUpdateStatus);
+gamesRoute.delete("/games/:id", deleteGame, sendGame);
 
 module.exports = gamesRoute;
