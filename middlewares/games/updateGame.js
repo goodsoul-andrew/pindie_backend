@@ -6,7 +6,7 @@ const updateGame = async (req, res, next) => {
 		next();
 	} catch (error) {
 		console.log(error);
-		res.status(400).send({ message: 'Ошибка обновления игры' });
+		res.status(400).send({ message: 'Error updating game' });
 	}
 };
 

@@ -7,7 +7,7 @@ async function createUser(req, res, next) {
 		req.user = await users.create(req.body);
 		next();
 	} catch (error) {
-		error;
+		console.log(error);
 		res.status(400).send('Error creating user');
 	}
 }

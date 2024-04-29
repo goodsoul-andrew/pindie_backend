@@ -7,7 +7,8 @@ async function findUsers(req, res, next) {
 		req.users = await users.find(criteria).select('-password');
 		next();
 	} catch (error) {
-		res.status(404).send({ message: 'User not found' });
+		console.log(error);
+		res.status(404).send({ message: 'Users not found' });
 	}
 }
 

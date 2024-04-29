@@ -8,7 +8,8 @@ async function findGames(req, res, next) {
 		req.games = await games.find(criteria).populate('categories').populate({ path: 'users', select: '-password' });
 		next();
 	} catch (error) {
-		res.status(404).send({ message: 'Game not found' });
+		console.log(error);
+		res.status(404).send({ message: 'Games not found' });
 	}
 }
 

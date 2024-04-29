@@ -14,6 +14,7 @@ const findGameById = async (req, res, next) => {
 			.populate({ path: 'users', select: '-password' });
 		next();
 	} catch (error) {
+		console.log(error);
 		res.status(404).send({ message: 'Game not found' });
 	}
 };

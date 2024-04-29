@@ -6,7 +6,7 @@ const updateCategory = async (req, res, next) => {
 		next();
 	} catch (error) {
 		console.log(error);
-		res.status(400).send({ message: 'Ошибка обновления категории' });
+		res.status(400).send({ message: 'Error updating category' });
 	}
 };
 
