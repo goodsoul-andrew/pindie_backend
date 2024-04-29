@@ -1,0 +1,15 @@
+const games = require('../models/game');
+
+
+async function createGame(req, res, next) {
+  console.log('POST /games');
+  try {
+		console.log(req.body);
+		req.game = await games.create(req.body);
+		next();
+	} catch (error) {
+		res.status(400).send('Error creating game');
+	}
+}
+
+module.exports = createGame;
