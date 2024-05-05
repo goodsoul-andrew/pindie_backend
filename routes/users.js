@@ -1,4 +1,14 @@
-const { getAllUsers, createUser, findUserById, findUsers, updateUser, deleteUser } = require('../middlewares');
+const {
+	getAllUsers,
+	createUser,
+	findUserById,
+	findUsers,
+	updateUser,
+	deleteUser,
+	checkRepeatingEmail,
+	checkEmailValid,
+	checkEmptyFieldsUser
+} = require('../middlewares');
 //const removeProperty = require('../app-modules/utils/removeProperty');
 
 function sendAllUsers(req, res) {
@@ -18,9 +28,25 @@ function sendUpdateStatus(req, res) {
 
 const usersRoute = require('express').Router();
 usersRoute.get('/users', findUsers, sendAllUsers);
-usersRoute.post('/users', createUser, sendUser);
+usersRoute.post(
+	'/users',
+	getAllUsers,
+	checkEmptyFieldsUser,
+	checkRepeatingEmail,
+	checkEmailValid,
+	createUser,
+	sendUser
+);
 usersRoute.get('/users/:id', findUserById, sendUser);
-usersRoute.put('/users/:id', updateUser, sendUpdateStatus);
+usersRoute.put(
+	'/users/:id',
+	getAllUsers,
+	checkEmptyFieldsUser,
+	checkRepeatingEmail,
+	checkEmailValid,
+	updateUser,
+	sendUpdateStatus
+);
 usersRoute.delete("/users/:id", deleteUser, sendUser);
 
 module.exports = usersRoute;

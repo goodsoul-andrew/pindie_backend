@@ -3,7 +3,6 @@ const games = require('../../models/game');
 async function createGame(req, res, next) {
 	('POST /games');
 	try {
-		req.body;
 		req.game = await games.create(req.body);
 		next();
 	} catch (error) {

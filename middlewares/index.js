@@ -1,14 +1,36 @@
 const cors = require('./cors');
-const { getAllGames, findGameById, findGames, createGame, updateGame, deleteGame } = require('./games');
+const {
+	getAllGames,
+	findGameById,
+	findGames,
+	createGame,
+	updateGame,
+	deleteGame,
+	checkEmptyFieldsGame,
+	checkUsersSafe,
+	checkCategoriesAvailable
+} = require('./games');
 const {
 	getAllCategories,
 	findCategories,
 	findCategoryById,
 	updateCategory,
 	createCategory,
-	deleteCategory
+	deleteCategory,
+	checkEmptyCategory,
+	checkIfCategoryExists
 } = require('./categories');
-const { getAllUsers, findUserById, findUsers, createUser, updateUser, deleteUser } = require('./users');
+const {
+	getAllUsers,
+	findUserById,
+	findUsers,
+	createUser,
+	updateUser,
+	deleteUser,
+	checkRepeatingEmail,
+	checkEmailValid,
+	checkEmptyFieldsUser
+} = require('./users');
 
 
 module.exports = {
@@ -30,5 +52,13 @@ module.exports = {
 	findCategories,
 	updateUser,
 	deleteUser,
-	deleteCategory
+	deleteCategory,
+	checkEmptyFieldsGame,
+	checkUsersSafe,
+	checkCategoriesAvailable,
+	checkEmptyCategory,
+	checkIfCategoryExists,
+	checkRepeatingEmail,
+	checkEmailValid,
+	checkEmptyFieldsUser
 };
