@@ -10,7 +10,7 @@ const {
 	checkEmptyFieldsGame,
 	checkUsersSafe,
 	checkCategoriesAvailable
-} = require('../middlewares');
+} = require('../../middlewares');
 
 function sendGames(req, res) {
 	res.send(req.games);

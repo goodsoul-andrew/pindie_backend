@@ -7,8 +7,9 @@ const {
 	deleteUser,
 	checkRepeatingEmail,
 	checkEmailValid,
-	checkEmptyFieldsUser
-} = require('../middlewares');
+	checkEmptyFieldsUser,
+	hashPassword
+} = require('../../middlewares');
 //const removeProperty = require('../app-modules/utils/removeProperty');
 
 function sendAllUsers(req, res) {
@@ -34,6 +35,7 @@ usersRoute.post(
 	checkEmptyFieldsUser,
 	checkRepeatingEmail,
 	checkEmailValid,
+	hashPassword,
 	createUser,
 	sendUser
 );
@@ -44,9 +46,10 @@ usersRoute.put(
 	checkEmptyFieldsUser,
 	checkRepeatingEmail,
 	checkEmailValid,
+	hashPassword,
 	updateUser,
 	sendUpdateStatus
 );
-usersRoute.delete("/users/:id", deleteUser, sendUser);
+usersRoute.delete('/users/:id', deleteUser, sendUser);
 
 module.exports = usersRoute;

@@ -29,7 +29,8 @@ const {
 	deleteUser,
 	checkRepeatingEmail,
 	checkEmailValid,
-	checkEmptyFieldsUser
+	checkEmptyFieldsUser,
+	hashPassword
 } = require('./users');
 
 
@@ -60,5 +61,6 @@ module.exports = {
 	checkIfCategoryExists,
 	checkRepeatingEmail,
 	checkEmailValid,
-	checkEmptyFieldsUser
+	checkEmptyFieldsUser,
+	hashPassword
 };

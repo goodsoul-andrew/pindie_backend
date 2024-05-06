@@ -7,7 +7,7 @@ const {
 	deleteCategory,
 	checkEmptyCategory,
 	checkIfCategoryExists
-} = require('../middlewares');
+} = require('../../middlewares');
 
 function sendAllCategories(req, res) {
 	res.setHeader('Content-Type', 'application/json');

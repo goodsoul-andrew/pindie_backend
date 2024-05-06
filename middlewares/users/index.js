@@ -7,6 +7,7 @@ const deleteUser = require('./deleteUser');
 const checkRepeatingEmail = require('./checkRepeatingEmail');
 const checkEmailValid = require('./checkEmailValid');
 const checkEmptyFieldsUser = require('./checkEmptyFieldsUser');
+const hashPassword = require('./hashPassword');
 
 
 module.exports = {
@@ -18,5 +19,6 @@ module.exports = {
 	deleteUser,
 	checkRepeatingEmail,
 	checkEmailValid,
-	checkEmptyFieldsUser
+	checkEmptyFieldsUser,
+	hashPassword
 };
