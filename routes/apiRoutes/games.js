@@ -9,7 +9,9 @@ const {
 	updateGame,
 	checkEmptyFieldsGame,
 	checkUsersSafe,
-	checkCategoriesAvailable
+	checkCategoriesAvailable,
+	checkAuth,
+	checkAdmin
 } = require('../../middlewares');
 
 function sendGames(req, res) {
@@ -27,15 +29,17 @@ function sendUpdateStatus(req, res) {
 const gamesRoute = express.Router();
 gamesRoute.get('/games', findGames, sendGames);
 gamesRoute.get('/games/:id', findGameById, sendGame);
-gamesRoute.post('/games', checkEmptyFieldsGame, checkCategoriesAvailable, createGame, sendGame);
+gamesRoute.post('/games', checkAuth, checkAdmin, checkEmptyFieldsGame, checkCategoriesAvailable, createGame, sendGame);
 gamesRoute.put(
 	'/games/:id',
+	checkAuth,
+	checkAdmin,
 	checkEmptyFieldsGame,
 	checkUsersSafe,
 	checkCategoriesAvailable,
 	updateGame,
 	sendUpdateStatus
 );
-gamesRoute.delete('/games/:id', deleteGame, sendGame);
+gamesRoute.delete('/games/:id', checkAuth, checkAdmin, deleteGame, sendGame);
 
 module.exports = gamesRoute;

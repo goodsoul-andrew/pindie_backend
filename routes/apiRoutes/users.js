@@ -8,7 +8,9 @@ const {
 	checkRepeatingEmail,
 	checkEmailValid,
 	checkEmptyFieldsUser,
-	hashPassword
+	hashPassword,
+	checkAuth,
+	checkAdmin
 } = require('../../middlewares');
 //const removeProperty = require('../app-modules/utils/removeProperty');
 
@@ -42,14 +44,15 @@ usersRoute.post(
 usersRoute.get('/users/:id', findUserById, sendUser);
 usersRoute.put(
 	'/users/:id',
+	checkAuth,
+	checkAdmin,
 	getAllUsers,
 	checkEmptyFieldsUser,
 	checkRepeatingEmail,
 	checkEmailValid,
-	hashPassword,
 	updateUser,
 	sendUpdateStatus
 );
-usersRoute.delete('/users/:id', deleteUser, sendUser);
+usersRoute.delete('/users/:id', checkAuth, checkAdmin, deleteUser, sendUser);
 
 module.exports = usersRoute;

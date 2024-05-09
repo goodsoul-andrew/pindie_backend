@@ -2,8 +2,12 @@ const games = require('../../models/game');
 
 async function findGames(req, res, next) {
 	let criteria = req.query;
-	criteria;
-	'/games GET', criteria;
+	//console.log(criteria);
+	if (req.query['categories.name']) {
+		req.games = await games.findGameByCategory(req.query['categories.name']);
+		next();
+		return;
+	}
 	try {
 		req.games = await games.find(criteria).populate('categories').populate({ path: 'users', select: '-password' });
 		next();

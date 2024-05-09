@@ -1,4 +1,6 @@
 const cors = require('./cors');
+const checkAuth = require('./checkAuth');
+const checkAdmin = require('./checkAdmin');
 const {
 	getAllGames,
 	findGameById,
@@ -62,5 +64,7 @@ module.exports = {
 	checkRepeatingEmail,
 	checkEmailValid,
 	checkEmptyFieldsUser,
-	hashPassword
+	hashPassword,
+	checkAuth,
+	checkAdmin
 };

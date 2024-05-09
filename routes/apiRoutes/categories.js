@@ -6,7 +6,8 @@ const {
 	findCategories,
 	deleteCategory,
 	checkEmptyCategory,
-	checkIfCategoryExists
+	checkIfCategoryExists,
+	checkAuth, checkAdmin
 } = require('../../middlewares');
 
 function sendAllCategories(req, res) {
@@ -27,6 +28,8 @@ const categoriesRoute = require('express').Router();
 categoriesRoute.get('/categories', findCategories, sendAllCategories);
 categoriesRoute.post(
 	'/categories',
+	checkAuth, 
+	checkAdmin,
 	findCategories,
 	checkEmptyCategory,
 	checkIfCategoryExists,
@@ -36,12 +39,14 @@ categoriesRoute.post(
 categoriesRoute.get('/categories/:id', findCategoryById, sendCategory);
 categoriesRoute.put(
 	'/categories/:id',
+	checkAuth,
+	checkAdmin,
 	findCategories,
 	checkEmptyCategory,
 	checkIfCategoryExists,
 	updateCategory,
 	sendUpdateStatus
 );
-categoriesRoute.delete('/categories/:id', deleteCategory, sendCategory);
+categoriesRoute.delete('/categories/:id', checkAuth, checkAdmin, deleteCategory, sendCategory);
 
 module.exports = categoriesRoute;
