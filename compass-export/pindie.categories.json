@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "66294eb3970ecda45cf15d60"
+  },
+  "name": "popular"
+},
+{
+  "_id": {
+    "$oid": "66294ece970ecda45cf15d61"
+  },
+  "name": "new"
+},
+{
+  "_id": {
+    "$oid": "66294eed970ecda45cf15d62"
+  },
+  "name": "runner"
+},
+{
+  "_id": {
+    "$oid": "66294f0f970ecda45cf15d63"
+  },
+  "name": "pixel"
+},
+{
+  "_id": {
+    "$oid": "66294f18970ecda45cf15d64"
+  },
+  "name": "shooter"
+},
+{
+  "_id": {
+    "$oid": "66294f2e970ecda45cf15d65"
+  },
+  "name": "TDS"
+},
+{
+  "_id": {
+    "$oid": "662fb22742fa11a1ac1085cc"
+  },
+  "name": "anime"
+}]

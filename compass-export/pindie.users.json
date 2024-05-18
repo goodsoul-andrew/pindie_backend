@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "66374a17ad4cf9868b921cc3"
+  },
+  "username": "aski",
+  "email": "aski@example.com",
+  "password": "$2a$10$eQdLocfiNJJgP/ehLtSekuzcJ.zCStUYib0PGINJ5A3AjZBZkPu/C",
+  "__v": 0,
+  "status": "user"
+},
+{
+  "_id": {
+    "$oid": "66374b460a315fc2a405be55"
+  },
+  "username": "Sobaka",
+  "email": "jav@example.com",
+  "password": "$2a$10$g6PgxfOv1p0xVAi1FCckRuolYB5ImwazvVVhNVisaoxDI9NuAE8oi",
+  "status": "user"
+},
+{
+  "_id": {
+    "$oid": "66374befad4cf9868b921ccb"
+  },
+  "username": "Van Darkholme",
+  "email": "van.darkholme@dungeon.cum",
+  "password": "$2a$10$gUenS.JQt//u3oU38lFNpeFIjjJEI9dAP6CLniG90.mJu0SS4qfJS",
+  "status": "user"
+},
+{
+  "_id": {
+    "$oid": "66375e709c95a1e37325b6fb"
+  },
+  "username": "aniki",
+  "email": "aniki@niconico.jp",
+  "password": "$2a$10$4bJn2DfG2IdbotzMaEHfIOc64dckIxMt0w6ShH7KHYj2pBoFLtQ6W",
+  "status": "user"
+},
+{
+  "_id": {
+    "$oid": "663d1d77e0bf70a40b69a7f8"
+  },
+  "username": "admin",
+  "email": "admin@example.com",
+  "password": "$2a$10$QF59nl47fmX75z2K.jqdP.0T61rq3nPfykzIN9BQhDgwIcU/3nY7S",
+  "status": "admin"
+},
+{
+  "_id": {
+    "$oid": "6644bfeaf43cd54552756900"
+  },
+  "username": "novice",
+  "email": "novice@example.com",
+  "password": "$2a$10$eIcWiNntcq8LYlxvOqokCeyJIDoC5dQzHmKdb3lSCyF8G7e5uUdgW",
+  "status": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6644c21ccf48ef5beef41cda"
+  },
+  "username": "novice3",
+  "email": "novice3@example.com",
+  "password": "$2a$10$a8/Z5Cb3PBnJjlFP0h8S4.Y9er7PWY/hXj8rYCLAcrvZEdEUEVYSi",
+  "status": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6644c46c2d68ff86251f560d"
+  },
+  "username": "novice2",
+  "email": "novice2@example.com",
+  "password": "$2a$10$tpzZ3Hv5fEpzSnNKerW/I.sApAyHz3jHuQP2SQ9sxk6XhaKm7GQFS",
+  "status": "user",
+  "__v": 0
+}]
