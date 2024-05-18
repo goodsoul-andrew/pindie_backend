@@ -5,7 +5,7 @@ const updateCategory = async (req, res, next) => {
 		req.category = await categories.findByIdAndUpdate(req.params.id, req.body);
 		next();
 	} catch (error) {
-		//console.log(error);
+		console.log(error);
 		res.status(400).send({ message: 'Error updating category' });
 		return;
 	}

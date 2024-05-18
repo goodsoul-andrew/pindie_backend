@@ -7,7 +7,7 @@ async function createCategory(req, res, next) {
 		req.category = await categories.create(req.body);
 		next();
 	} catch (error) {
-		//console.log(error);
+		console.log(error);
 		res.status(400).send('Error creating category');
 		return;
 	}
