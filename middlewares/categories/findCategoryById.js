@@ -5,8 +5,9 @@ const findCategoryById = async (req, res, next) => {
 		req.category = await categories.findById(req.params.id);
 		next();
 	} catch (error) {
-		console.log(error);
+		//console.log(error);
 		res.status(404).send({ message: 'Category not found' });
+		return;
 	}
 };
 

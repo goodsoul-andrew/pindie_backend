@@ -1,16 +1,20 @@
 const express = require('express');
 const path = require('path');
-const {mainRoute, apiRouter} = require("./routes");
+const { mainRoute, apiRouter, dashboardRoute } = require('./routes');
 const {cors} = require("./middlewares");
 const bodyParser = require('body-parser');
 const connectToDatabase = require("./database/connect");
+const cookieParser = require('cookie-parser');
 
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public'))); 
 app.use(cors);
+app.use(cookieParser());
+app.use(mainRoute);
+app.use(express.static(path.join(__dirname, 'public'))); 
 app.use(bodyParser.json());
-app.use(mainRoute, apiRouter);
+app.use(dashboardRoute, apiRouter);
+
 
 // sudo systemctl start mongod
 connectToDatabase();

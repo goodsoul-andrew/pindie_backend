@@ -11,15 +11,22 @@ const {
 	checkUsersSafe,
 	checkCategoriesAvailable,
 	checkAuth,
-	checkAdmin
+	checkAdmin,
+	checkJWTCookie,
+	logReq,
+	updateGameUsers
 } = require('../../middlewares');
+const { prettyJSON } = require('../../app-modules');
 
 function sendGames(req, res) {
-	res.send(req.games);
+	res.setHeader('Content-Type', 'application/json');
+	//res.send(JSON.stringify(req.games, null, 2));
+	res.send(prettyJSON(req.games));
 }
 
 function sendGame(req, res) {
-	res.send(req.game);
+	res.setHeader('Content-Type', 'application/json');
+	res.send(prettyJSON(req.game));
 }
 
 function sendUpdateStatus(req, res) {
@@ -29,17 +36,27 @@ function sendUpdateStatus(req, res) {
 const gamesRoute = express.Router();
 gamesRoute.get('/games', findGames, sendGames);
 gamesRoute.get('/games/:id', findGameById, sendGame);
-gamesRoute.post('/games', checkAuth, checkAdmin, checkEmptyFieldsGame, checkCategoriesAvailable, createGame, sendGame);
+gamesRoute.post('/games',checkJWTCookie, checkAuth, checkAdmin, checkEmptyFieldsGame, checkCategoriesAvailable, createGame, sendGame);
 gamesRoute.put(
 	'/games/:id',
+	checkJWTCookie,
 	checkAuth,
 	checkAdmin,
 	checkEmptyFieldsGame,
-	checkUsersSafe,
 	checkCategoriesAvailable,
 	updateGame,
 	sendUpdateStatus
 );
-gamesRoute.delete('/games/:id', checkAuth, checkAdmin, deleteGame, sendGame);
+gamesRoute.put(
+	'/games/vote/:id',
+//	logReq,
+	checkJWTCookie,
+	checkAuth,
+	findGameById,
+	checkUsersSafe,
+	updateGameUsers,
+	sendUpdateStatus
+);
+gamesRoute.delete('/games/:id',checkJWTCookie, checkAuth, checkAdmin, deleteGame, sendGame);
 
 module.exports = gamesRoute;

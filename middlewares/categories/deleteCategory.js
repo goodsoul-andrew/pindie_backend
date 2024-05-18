@@ -5,8 +5,9 @@ const deleteCategory = async (req, res, next) => {
 		req.category = await categories.findByIdAndDelete(req.params.id);
 		next();
 	} catch (error) {
-		console.log(error);
+		//console.log(error);
 		res.status(400).send({ message: 'Error deleting category' });
+		return;
 	}
 };
 

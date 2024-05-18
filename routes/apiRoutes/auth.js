@@ -10,6 +10,7 @@ async function login (req, res) {
 		const token = jwt.sign({ _id: user._id }, 'super-secret-key', {expiresIn: 3600});
 		res.status(200).send({ _id: user._id, username: user.username, email: user.email, jwt: token });
 	} catch (error) {
+		console.log(error);
 		res.status(401).send({ message: error.message });
 	}
 };

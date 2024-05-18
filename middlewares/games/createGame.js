@@ -6,8 +6,9 @@ async function createGame(req, res, next) {
 		req.game = await games.create(req.body);
 		next();
 	} catch (error) {
-		console.log(error);
+		//console.log(error);
 		res.status(400).send('Error creating game');
+		return;
 	}
 }
 

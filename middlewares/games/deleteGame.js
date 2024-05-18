@@ -7,6 +7,7 @@ const deleteGame = async (req, res, next) => {
 	} catch (error) {
 		console.log(error);
 		res.status(400).send({ message: 'Error deleting game' });
+		return;
 	}
 };
 

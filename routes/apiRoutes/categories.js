@@ -7,17 +7,20 @@ const {
 	deleteCategory,
 	checkEmptyCategory,
 	checkIfCategoryExists,
-	checkAuth, checkAdmin
+	checkAuth,
+	checkAdmin,
+	checkJWTCookie
 } = require('../../middlewares');
+const {prettyJSON} = require("../../app-modules")
 
 function sendAllCategories(req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	res.end(JSON.stringify(req.categories));
+	res.end(prettyJSON(req.categories));
 }
 
 const sendCategory = (req, res) => {
 	res.setHeader('Content-Type', 'application/json');
-	res.end(JSON.stringify(req.category));
+	res.end(prettyJSON(req.category));
 };
 
 function sendUpdateStatus(req, res) {
@@ -28,6 +31,7 @@ const categoriesRoute = require('express').Router();
 categoriesRoute.get('/categories', findCategories, sendAllCategories);
 categoriesRoute.post(
 	'/categories',
+	checkJWTCookie,
 	checkAuth, 
 	checkAdmin,
 	findCategories,
@@ -39,6 +43,7 @@ categoriesRoute.post(
 categoriesRoute.get('/categories/:id', findCategoryById, sendCategory);
 categoriesRoute.put(
 	'/categories/:id',
+	checkJWTCookie,
 	checkAuth,
 	checkAdmin,
 	findCategories,
@@ -47,6 +52,6 @@ categoriesRoute.put(
 	updateCategory,
 	sendUpdateStatus
 );
-categoriesRoute.delete('/categories/:id', checkAuth, checkAdmin, deleteCategory, sendCategory);
+categoriesRoute.delete('/categories/:id',checkJWTCookie, checkAuth, checkAdmin, deleteCategory, sendCategory);
 
 module.exports = categoriesRoute;

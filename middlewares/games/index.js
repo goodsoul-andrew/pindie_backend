@@ -7,6 +7,7 @@ const deleteGame = require('./deleteGame');
 const checkEmptyFieldsGame = require('./checkEmptyFieldsGame');
 const checkCategoriesAvailable = require('./checkCategoriesAvailable');
 const checkUsersSafe = require('./checkUsersSafe');
+const updateGameUsers = require('./updateGameUsers');
 
 
 module.exports = {
@@ -18,5 +19,6 @@ module.exports = {
 	deleteGame,
 	checkEmptyFieldsGame,
 	checkUsersSafe,
-	checkCategoriesAvailable
+	checkCategoriesAvailable,
+	updateGameUsers
 };

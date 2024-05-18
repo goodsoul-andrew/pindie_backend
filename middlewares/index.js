@@ -1,6 +1,6 @@
 const cors = require('./cors');
-const checkAuth = require('./checkAuth');
-const checkAdmin = require('./checkAdmin');
+const logReq = require('./logReq');
+const { checkAdmin, checkAuth, checkJWTCookie } = require('./auth');
 const {
 	getAllGames,
 	findGameById,
@@ -10,7 +10,8 @@ const {
 	deleteGame,
 	checkEmptyFieldsGame,
 	checkUsersSafe,
-	checkCategoriesAvailable
+	checkCategoriesAvailable,
+	updateGameUsers
 } = require('./games');
 const {
 	getAllCategories,
@@ -34,7 +35,6 @@ const {
 	checkEmptyFieldsUser,
 	hashPassword
 } = require('./users');
-
 
 module.exports = {
 	cors,
@@ -66,5 +66,8 @@ module.exports = {
 	checkEmptyFieldsUser,
 	hashPassword,
 	checkAuth,
-	checkAdmin
+	checkAdmin,
+	checkJWTCookie,
+	logReq,
+	updateGameUsers
 };

@@ -10,6 +10,7 @@ const hashPassword = async (req, res, next) => {
 		req.body.password = hash;
 		next();
 	} catch (error) {
+		console.log(error)
 		res.status(400).send({ message: 'Ошибка хеширования пароля' });
 	}
 };
