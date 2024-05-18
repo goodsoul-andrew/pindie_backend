@@ -4,10 +4,10 @@ const DB_URL = 'mongodb://localhost:27017/pindie';
 
 async function connectToDatabase() {
 	try {
-		await mongoose.connect(DB_URL);
-		('Успешно подключились к MongoDB');
+		await mongoose.connect(DB_URL, { family: 4 });
+		console.log('Успешно подключились к MongoDB');
 	} catch (err) {
-		('При подключении MongoDB возникла ошибка');
+		console.log('При подключении MongoDB возникла ошибка');
 		console.error(err);
 	}
 }
