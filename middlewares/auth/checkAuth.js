@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const users = require("../../models/user")
 
 async function checkAuth (req, res, next) {
-	console.log("checking authorization header...")
+	//console.log("checking authorization header...")
 	let { Authorization } = req.headers;
 	if (! Authorization) { // костыль
 		Authorization = req.headers.authorization;

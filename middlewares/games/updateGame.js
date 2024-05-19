@@ -2,7 +2,7 @@ const games = require('../../models/game');
 
 const updateGame = async (req, res, next) => {
 	try {
-		//console.log(req.params.id);
+		//console.log("body", req.body);
 		req.game = await games.findByIdAndUpdate(req.params.id, req.body);
 		next();
 	} catch (error) {

@@ -30,7 +30,8 @@ function sendGame(req, res) {
 }
 
 function sendUpdateStatus(req, res) {
-	res.send({ message: 'Игра обновлена' });
+	res.send({ message: 'Игра обновлена', game: req.game });
+	//console.log(req.game);
 }
 
 const gamesRoute = express.Router();
@@ -45,11 +46,12 @@ gamesRoute.put(
 	checkEmptyFieldsGame,
 	checkCategoriesAvailable,
 	updateGame,
+	findGameById,
 	sendUpdateStatus
 );
 gamesRoute.put(
 	'/games/vote/:id',
-//	logReq,
+	//	logReq,
 	checkJWTCookie,
 	checkAuth,
 	findGameById,

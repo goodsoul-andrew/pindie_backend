@@ -36,6 +36,7 @@ const postData = async (url, data) => {
 };
 
 const putData = async (url, data) => {
+  //console.log("data", data)
   const jwt = getJWTFromCookie();
   try {
     const response = await fetch(url, {

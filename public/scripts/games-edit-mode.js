@@ -157,12 +157,15 @@ export const fillStoreWithEditableElements = gameId => {
   const { setCurrentState } = useGameState();
   let { targetElementsState } = useEditableElementsState(gameId);
   // наполнить стор из аттрибутов элементов
+  //console.log('targetElementsState', targetElementsState);
   targetElementsState.forEach(item => {
     if (item.canEditText) {
+      //console.log(item.name, "textContent", item.textContent);
       setCurrentState(item.name, item.element.textContent);
     }
     if (item.canSetSource) {
-      setCurrentState(item.name, item.element.src || item.element.href);
+      //console.log(item.name, 'element.src', item.element.src, "element.href", item.element.href, "element.innerHTML", item.element.innerHTML);
+      setCurrentState(item.name, item.element.src || item.element.innerHTML);
     }
     if (item.name === "imageInput") {
       setCurrentState("image", item.element[0].value);
