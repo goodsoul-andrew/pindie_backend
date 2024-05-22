@@ -11,7 +11,8 @@ const {
 	checkEmptyFieldsGame,
 	checkUsersSafe,
 	checkCategoriesAvailable,
-	updateGameUsers
+	updateGameUsers,
+	checkGameTitle
 } = require('./games');
 const {
 	getAllCategories,
@@ -69,5 +70,6 @@ module.exports = {
 	checkAdmin,
 	checkJWTCookie,
 	logReq,
-	updateGameUsers
+	updateGameUsers,
+	checkGameTitle
 };

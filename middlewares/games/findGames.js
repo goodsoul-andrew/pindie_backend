@@ -4,7 +4,7 @@ async function findGames(req, res, next) {
 	let criteria = req.query;
 	//console.log(criteria);
 	if (req.query['categories.name']) {
-		req.games = await games.findGameByCategory(req.query['categories.name']);
+		req.games = await games.findGamesByCategory(req.query['categories.name']);
 		next();
 	}
 	try {
