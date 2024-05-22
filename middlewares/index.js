@@ -12,7 +12,8 @@ const {
 	checkUsersSafe,
 	checkCategoriesAvailable,
 	updateGameUsers,
-	checkGameTitle
+	checkGameTitleForPut,
+	checkGameTitleForPost
 } = require('./games');
 const {
 	getAllCategories,
@@ -71,5 +72,6 @@ module.exports = {
 	checkJWTCookie,
 	logReq,
 	updateGameUsers,
-	checkGameTitle
+	checkGameTitleForPut,
+	checkGameTitleForPost
 };

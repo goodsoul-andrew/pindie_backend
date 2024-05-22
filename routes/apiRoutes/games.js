@@ -15,7 +15,8 @@ const {
 	checkJWTCookie,
 	logReq,
 	updateGameUsers,
-	checkGameTitle
+	checkGameTitleForPut,
+	checkGameTitleForPost
 } = require('../../middlewares');
 const { prettyJSON } = require('../../app-modules');
 
@@ -38,7 +39,7 @@ function sendUpdateStatus(req, res) {
 const gamesRoute = express.Router();
 gamesRoute.get('/games', findGames, sendGames);
 gamesRoute.get('/games/:id', findGameById, sendGame);
-gamesRoute.post('/games',checkJWTCookie, checkAuth, checkAdmin, checkEmptyFieldsGame, checkGameTitle, checkCategoriesAvailable, createGame, sendGame);
+gamesRoute.post('/games',checkJWTCookie, checkAuth, checkAdmin, checkEmptyFieldsGame, checkGameTitleForPost, checkCategoriesAvailable, createGame, sendGame);
 gamesRoute.put(
 	'/games/:id',
 	checkJWTCookie,
@@ -46,7 +47,7 @@ gamesRoute.put(
 	checkAdmin,
 	checkEmptyFieldsGame,
 	findGameById,
-	checkGameTitle,
+	checkGameTitleForPut,
 	checkCategoriesAvailable,
 	updateGame,
 	findGameById,
