@@ -45,7 +45,7 @@ const gameSchema = new mongoose.Schema({
 	]
 });
 
-gameSchema.statics.findGameByCategory = function (category) {
+gameSchema.statics.findGamesByCategory = function (category) {
 	return this.find({}) // Выполним поиск всех игр
 		.populate({
 			path: 'categories',
@@ -58,6 +58,20 @@ gameSchema.statics.findGameByCategory = function (category) {
 		.then((games) => {
 			// Отфильтруем по наличию искомой категории
 			return games.filter((game) => game.categories.length > 0);
+		});
+}; 
+
+gameSchema.statics.findGameByTitle = function (title) {
+	return this.findOne({title: title}) // Выполним поиск всех игр
+		.populate({
+			path: 'categories',
+		})
+		.populate({
+			path: 'users',
+			select: '-password'
+		})
+		.then((game) => {
+			return game;
 		});
 }; 
 
